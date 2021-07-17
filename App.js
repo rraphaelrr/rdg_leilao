@@ -23,6 +23,7 @@ import {
 
 
 import login from './screens/login/login';
+import home from './screens/home/home';
 
 
 
@@ -30,6 +31,7 @@ const mainNavigation = createAnimatedSwitchNavigator(
 	{
 		
 		login,
+		home
 		
 	},
 	{

@@ -9,5 +9,6 @@ import { Video } from 'expo-av';
 
 
 export default {
-
+    imglogin: <Image source={require('../assets/images/login3.jpg')} />,
+    logologin: <Image source={require('../assets/images/logo2.png')} style={Layout.sizelogin} />,
 };
