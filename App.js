@@ -23,6 +23,7 @@ import {
 
 
 import login from './screens/login/login';
+import cadastro from './screens/cadastro/cadastro'
 import home from './screens/home/home';
 
 
@@ -31,6 +32,7 @@ const mainNavigation = createAnimatedSwitchNavigator(
 	{
 		
 		login,
+		cadastro,
 		home
 		
 	},
@@ -52,30 +54,16 @@ const App = createAppContainer(mainNavigation);
 export default class Appp extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			load: false
-		}
+		
 	}
 
 	loadFonts = async () => {
 		await Font.loadAsync({
 			'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.ttf')
-		}).then(() => this.atualizacao())
+		}).then(() => this.render())
 	}
 
-	atualizacao = async () => {
-		try {
-			const update = await Updates.checkForUpdateAsync();
-			if (update.isAvailable) {
-				await Updates.fetchUpdateAsync();
-				await Updates.reloadAsync();
-			} else {
-				this.setState({ load: true });
-			}
-		} catch (e) {
-			this.setState({ load: true });
-		}
-	};
+	
 
 	componentDidMount() {
 		this.loadFonts();
@@ -84,26 +72,13 @@ export default class Appp extends React.Component {
 
 
 	render() {
-		if (this.state.load == false) {
-			return (
-				<ImageBackground style={{ backgroundColor: Colors.cor_1, width: '100%', height: '100%', justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center' }} source={Objetos.imagem_fundo} >
-
-					<View style={{ height: 40 }}>
-						<DotIndicator size={20} color={Colors.cor_2} />
-					</View>
-					<View>
-						<Text style={{ color: Colors.cor_2, fontSize: 15 }}>{'Carregando...'}</Text>
-					</View>
-
-				</ImageBackground>
-			)
-		} else {
+		
 			return (
 				<SafeAreaView style={{ flex: 1, backgroundColor: Objetos.cor_statusbar }} edges={['top',]}>
 					<StatusBar hidden={false} backgroundColor={Objetos.cor_statusbar} />
 					<App />
 				</SafeAreaView>
 			)
-		}
+		
 	}
 }

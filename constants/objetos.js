@@ -12,4 +12,6 @@ export default {
     imglogin: <Image source={require('../assets/images/login3.jpg')} />,
     logologin: <Image source={require('../assets/images/logo2.png')} style={Layout.sizelogin} />,
     logo: <Image source={require('../assets/images/logo.png')} style={Layout.sizeheader} />,
+
+    bannerhome: <View><Image source={require('../assets/images/bannerhome.png')} style={Layout.sizetestecard} /></View>,
 };

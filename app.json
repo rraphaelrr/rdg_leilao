@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "RDG Lei",
-    "slug": "RDGLeilao",
+    "name": "Rotas do Garimpo",
+    "slug": "RotasdoGarimpo",
     "privacy": "public",
     "platforms": [
       "ios",
@@ -27,7 +27,7 @@
     "ios": {
       "supportsTablet": true,
       "buildNumber": "1.0.0",
-      "bundleIdentifier": "com.rdgleilao.rdgleilao",
+      "bundleIdentifier": "com.rotasdogarimpo.rotasdogarimpo",
       "usesIcloudStorage": true,
       "requireFullScreen": true,
       "infoPlist": {
@@ -41,7 +41,7 @@
       }
     },
     "android": {
-      "package": "com.RdgLeilao.RdgLeilao",
+      "package": "com.RotasDoGarimpo.RotasDoGarimpo",
       "versionCode": 1,
       "googleServicesFile": "",
       "useNextNotificationsApi": true,

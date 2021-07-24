@@ -118,8 +118,8 @@ export default class login extends Component {
 						</View>
 					) : null}
 					<View style={{ width: '100%', alignItems: 'center', }}>
-						<TouchableOpacity style={layout_login.styles.ajuda_login} onPress={() => navigate('home')}>
-							<Text style={layout_login.styles.texto_ajuda}>{'Ajuda'}</Text>
+						<TouchableOpacity style={layout_login.styles.ajuda_login} onPress={() => navigate('cadastro')}>
+							<Text style={layout_login.styles.texto_ajuda}>{'Cadastro'}</Text>
 						</TouchableOpacity>
 					</View>
 				</ImageBackground>

@@ -37,7 +37,8 @@ const layout_home = {
     },
 
     opc_home: {
-      flexDirection: 'row'
+      flexDirection: 'row',
+      justifyContent: 'center'
     },
 
     btn_home: {
@@ -45,17 +46,58 @@ const layout_home = {
       borderWidth: 1,
       width: 130,
       height: 50,
-      marginLeft: 5,
+      marginLeft: 15,
       justifyContent: 'center',
       backgroundColor: Colors.cor_3,
       alignSelf: 'center',
       borderRadius: 5,
+      marginBottom: 5,
+      marginTop: 10
     },
 
     text_home: {
       textAlign: 'center',
       /* fontWeight: 'bold', */
       fontSize: 17
+    },
+
+    caixa_saldo: {
+      width: '98%',
+      backgroundColor: Colors.cor_2,
+      padding: 8,
+      borderRadius: 10,
+      alignContent: 'center',
+      alignSelf: 'center',
+      marginTop: 10,
+      marginBottom: 10,
+      flexDirection: 'row',
+    },
+
+    texto_saldo_conta_digital: {
+      color: Colors.cor_3,
+      fontSize: 15,
+    },
+
+    sifrao_saldo_conta_digital: {
+      fontSize: 15,
+      color: Colors.cor_3,
+      alignItems: 'baseline',
+      marginTop: 8,
+      fontWeight: 'bold'
+    },
+
+    valor_saldo_conta_digital: {
+      fontSize: 23,
+      color: Colors.cor_3,
+      marginRight: -10,
+      fontWeight: 'bold'
+    },
+
+    icone_olho_saldo: {
+      fontSize: 23,
+      color: Colors.cor_3,
+      marginRight: 25,
+
     },
 
 

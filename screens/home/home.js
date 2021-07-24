@@ -20,18 +20,47 @@ import AsyncStorage from '@react-native-community/async-storage';
 import * as Location from 'expo-location';
 import { sair } from '../../constants/funcoes';
 import Layout from '../../constants/Layout'
+import Icon2 from 'react-native-vector-icons/FontAwesome';
 
 const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');
 const ITEM_WIDTH = Math.round(width - 70);
 
 export default class home extends Component {
+    constructor(props) {
+        super(props);
+        global.digital = 10.00
+        this.state = {
+            valor_saldo: '__,__',
+            olho: 'eye-slash',
+
+        }
+    }
 
     _sair = () => {
         const { navigate } = this.props.navigation;
 
-        navigate('login'); 
-    };   
+        navigate('login');
+    };
+
+    mostrar_valor = () => {
+        if (this.state.valor_saldo == '__,__') {
+            this.setState({
+                valor_saldo: parseFloat(global.digital),
+                olho: 'eye'
+            })
+
+        } else {
+            this.setState({
+                valor_saldo: '__,__',
+                olho: 'eye-slash'
+            })
+        }
+    };
+
+    componentDidMount = () => {
+        global.digital = formatReal(global.digital);
+    }
 
 
 
@@ -52,29 +81,52 @@ export default class home extends Component {
                             this._sair();
                         }}>
                             <View style={{ paddingTop: 30 }}>
-                                {Icon.sair}
+                                {Icon.menu}
                             </View>
                         </TouchableOpacity>
                     </View>
+
+                    <View style={layout_home.styles.caixa_saldo} >
+                        <Text style={layout_home.styles.texto_saldo_conta_digital}>{'Saldo RDG Coin'}</Text>
+                        <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => this.mostrar_valor()}
+                            style={{ right: 0, position: 'absolute', flexDirection: 'row', alignItems: 'center' }}>
+                            <Text style={layout_home.styles.sifrao_saldo_conta_digital}>{'R$ '}</Text>
+                            <Text style={layout_home.styles.valor_saldo_conta_digital}>{this.state.valor_saldo + '    '}</Text>
+                            <Icon2 name={this.state.olho} size={24} style={layout_home.styles.icone_olho_saldo} />
+                        </TouchableOpacity>
+                    </View>
+                    <View >
+                        {Objetos.bannerhome}
+                    </View>
                     <View style={layout_home.styles.view_title_home}>
-                        <Text style={layout_home.styles.title_home}>{'Escolha a Sala que quer Acessar'}</Text>
+                        <Text style={layout_home.styles.title_home}>{'Seja Bem Vindo ao ' + Info.nome + '! \n Escolha o que Deseja Acessar'}</Text>
                     </View>
                     <View style={layout_home.styles.opc_home}>
                         <View >
                             <TouchableOpacity style={layout_home.styles.btn_home} >
-                                <Text style={layout_home.styles.text_home}>{'Comum'}</Text>
+                                <Text style={layout_home.styles.text_home}>{'Leilão'}</Text>
                             </TouchableOpacity>
                         </View>
                         <View >
                             <TouchableOpacity style={layout_home.styles.btn_home} >
-                                <Text style={layout_home.styles.text_home}>{'VIP'}</Text>
+                                <Text style={layout_home.styles.text_home}>{'E-Commerce'}</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
+
+                    <View style={layout_home.styles.opc_home}>
+                        <View >
+                            <TouchableOpacity style={layout_home.styles.btn_home} >
+                                <Text style={layout_home.styles.text_home}>{'Conversor $'}</Text>
                             </TouchableOpacity>
                         </View>
                         <View >
                             <TouchableOpacity style={layout_home.styles.btn_home} >
-                                <Text style={layout_home.styles.text_home}>{'Premium'}</Text>
+                                <Text style={layout_home.styles.text_home}>{'Pedidos'}</Text>
                             </TouchableOpacity>
                         </View>
+
                     </View>
                 </ScrollView>
             </ImageBackground>

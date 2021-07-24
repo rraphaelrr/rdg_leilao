@@ -211,7 +211,7 @@ export default {
     //menu e notificações
 
     /*menu: <Image source={require('../assets/icones/menu.png')} style={{ width: 30, height: 30 }} />, */
-    menu: <Icon name={'bars'} size={25} color={Colors.cor_3} />,
+    menu: <Icon name={'bars'} size={35} color={Colors.cor_1} style={{alignSelf: 'center', marginLeft: 150}}/>,
 
     /*notificacoes: <Image source={require('../assets/icones/notificacoes.png')} style={{ width: 30, height: 30 }} />, */
     notificacoes: <Icon name={'bell-o'} size={25} color={Colors.cor_3} />,
