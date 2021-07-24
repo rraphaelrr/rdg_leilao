@@ -204,7 +204,7 @@ export default {
     /*sair: <Image source={require('../assets/icones/sair.png')} style={{ width: 30, height: 30 }} />, */
     /*sairMenu: <Image source={require('../assets/icones/sair.png')} style={{ width: 30, height: 30 }} />, */
 
-    sair: <Icon name={'sign-out'} size={25} color={Colors.cor_1} style={{alignSelf: 'center', justifyContent: 'end'}}/>,
+    sair: <Icon name={'sign-out'} size={35} color={Colors.cor_1} style={{alignSelf: 'center', marginLeft: 150}}/>,
     sairMenu: <Icon name={'sign-out'} size={25} color={Colors.cor_3} />,
 
 

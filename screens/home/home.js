@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Text from '../../componentes/text';
-import { ScrollView, Animated, StatusBar, AppRegistry, View, TouchableOpacity, FlatList, ImageBackground, Alert, Dimensions, Image, Easing } from 'react-native';
+import { BackHandler, ScrollView, Animated, StatusBar, AppRegistry, View, TouchableOpacity, FlatList, ImageBackground, Alert, Dimensions, Image, Easing } from 'react-native';
 /* import Icon from 'react-native-vector-icons/FontAwesome'; */
 import layout_home from '../../templates/style_home';
 import Info from '../../constants/info';
@@ -27,20 +27,35 @@ const ITEM_WIDTH = Math.round(width - 70);
 
 export default class home extends Component {
 
+    _sair = () => {
+        const { navigate } = this.props.navigation;
+
+        navigate('login'); 
+    };   
+
+
+
 
     render() {
         const { navigate } = this.props.navigation;
         return (
             <ImageBackground style={layout_home.styles.container} source={Objetos.imagem_fundo}>
                 <ScrollView showsVerticalScrollIndicator={false} >
-                    <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => {
-                        Alert.alert('teste')
-                    }}>
-                        <View style={layout_home.styles.header}>
+                    <View style={layout_home.styles.header}>
+                        <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => {
+                            Alert.alert('teste')
+                        }}>
                             {Objetos.logo}
-                            {Icon.sair}
-                        </View>
-                    </TouchableOpacity>
+
+                        </TouchableOpacity>
+                        <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => {
+                            this._sair();
+                        }}>
+                            <View style={{ paddingTop: 30 }}>
+                                {Icon.sair}
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                     <View style={layout_home.styles.view_title_home}>
                         <Text style={layout_home.styles.title_home}>{'Escolha a Sala que quer Acessar'}</Text>
                     </View>
