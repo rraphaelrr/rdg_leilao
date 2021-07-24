@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Text from '../../componentes/text';
 import { ScrollView, Animated, StatusBar, AppRegistry, View, TouchableOpacity, FlatList, ImageBackground, Alert, Dimensions, Image, Easing } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+/* import Icon from 'react-native-vector-icons/FontAwesome'; */
 import layout_home from '../../templates/style_home';
 import Info from '../../constants/info';
+import Icon from '../../constants/icons';
 import { formatReal, botoes_home_layout } from '../../constants/funcoes';
 import Produtos from '../../constants/Produtos';
 import Objetos from '../../constants/objetos';
@@ -30,12 +31,38 @@ export default class home extends Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View>
-                <Text>{'Hello World'}</Text>
-                <TouchableOpacity onPress={() => navigate('login')}>
-                    <Text >{'Voltar'}</Text>
-                </TouchableOpacity>
-            </View>
+            <ImageBackground style={layout_home.styles.container} source={Objetos.imagem_fundo}>
+                <ScrollView showsVerticalScrollIndicator={false} >
+                    <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => {
+                        Alert.alert('teste')
+                    }}>
+                        <View style={layout_home.styles.header}>
+                            {Objetos.logo}
+                            {Icon.sair}
+                        </View>
+                    </TouchableOpacity>
+                    <View style={layout_home.styles.view_title_home}>
+                        <Text style={layout_home.styles.title_home}>{'Escolha a Sala que quer Acessar'}</Text>
+                    </View>
+                    <View style={layout_home.styles.opc_home}>
+                        <View >
+                            <TouchableOpacity style={layout_home.styles.btn_home} >
+                                <Text style={layout_home.styles.text_home}>{'Comum'}</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View >
+                            <TouchableOpacity style={layout_home.styles.btn_home} >
+                                <Text style={layout_home.styles.text_home}>{'VIP'}</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View >
+                            <TouchableOpacity style={layout_home.styles.btn_home} >
+                                <Text style={layout_home.styles.text_home}>{'Premium'}</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </ScrollView>
+            </ImageBackground>
 
         );
     }

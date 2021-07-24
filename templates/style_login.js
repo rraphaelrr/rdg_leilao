@@ -66,6 +66,20 @@ const layout_login = {
       borderColor: Colors.cor_5 //cor da linha 
     },
 
+    btn_entrar: {
+      width: 130,
+      height: 30,
+      borderRadius: 5,
+      margin: 20,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: Colors.cor_3,
+      borderColor: Colors.cor_3,
+      borderWidth: 1,
+      marginLeft: 195
+      /* opacity: 0.7, */
+    },
+
   }),
 
   //TextInput

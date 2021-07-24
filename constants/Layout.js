@@ -135,6 +135,7 @@ export default {
   sizeheader:{
     width : 200,
     height : 90,
+    
     //resizeMode : 'center',
   },
 

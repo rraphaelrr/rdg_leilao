@@ -84,26 +84,13 @@ export default class Appp extends React.Component {
 
 
 	render() {
-		if (this.state.load == false) {
-			return (
-				<ImageBackground style={{ backgroundColor: Colors.cor_1, width: '100%', height: '100%', justifyContent: 'center', alignContent: 'center', alignItems: 'center', alignSelf: 'center' }} source={Objetos.imagem_fundo} >
-
-					<View style={{ height: 40 }}>
-						<DotIndicator size={20} color={Colors.cor_2} />
-					</View>
-					<View>
-						<Text style={{ color: Colors.cor_2, fontSize: 15 }}>{'Carregando...'}</Text>
-					</View>
-
-				</ImageBackground>
-			)
-		} else {
+		
 			return (
 				<SafeAreaView style={{ flex: 1, backgroundColor: Objetos.cor_statusbar }} edges={['top',]}>
 					<StatusBar hidden={false} backgroundColor={Objetos.cor_statusbar} />
 					<App />
 				</SafeAreaView>
 			)
-		}
+		
 	}
 }

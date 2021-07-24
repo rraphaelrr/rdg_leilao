@@ -26,9 +26,11 @@ export default class login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			btn_acessar: false,
-			modal_acessar: true,
+			btn_acessar: true,
+			modal_acessar: false,
 			userEmail: '',
+			userPassword: '',
+			hidePassword: true,
 		}
 	}
 
@@ -36,6 +38,16 @@ export default class login extends Component {
 		console.log(this.state.userEmail)
 	}
 
+	login = () => {
+		if(this.state.userEmail == ''){
+			Alert.alert('Preencha as Credencias para Entrar!')
+		} else if (this.state.userPassword == '') {
+			Alert.alert('Preencha as Credencias para Entrar!')
+		}else {
+			this.props.navigation.navigate('home')
+			/* Alert.alert('Erro') */
+		}
+	}
 
 
 
@@ -56,7 +68,7 @@ export default class login extends Component {
 						</View>
 					) : null}
 					{this.state.modal_acessar ? (
-						<View style={{ width: '100%', alignItems: 'center', marginTop: 10, top: -20, padding: 10 }}>
+						<View style={{ width: '100%', alignItems: 'center', marginTop: 20, top: -20, padding: 10 }}>
 							<View style={layout_login.styles.modal_acessar}>
 								<TextInput style={layout_login.styles.inputBox}
 									value={this.state.userEmail}
@@ -73,10 +85,35 @@ export default class login extends Component {
 									returnKeyType={"next"}
 									label='Email'
 									keyboardType="email-address"
-									onChangeText={userEmail => this.setState({ userEmail })}
-								/* onSubmitEditing={() => this.senha.focus()} */
+									onChangeText={userEmail => this.setState({ userEmail: userEmail })}
+								onSubmitEditing={() => this.senha.focus()}
 								/>
-								<Text>{this.state.userEmail}</Text>
+								<TextInput style={layout_login.styles.inputBox}
+									value={this.state.userPassword}
+									mode='flat'
+									theme={{
+										roundness: 5,
+										colors: {
+											placeholder: layout_login.placeholder,
+											text: layout_login.text,
+											primary: layout_login.primary,
+
+										}
+									}}
+									underlineColorAndroid={'transparent'}
+									underlineColor={'transparent'}
+									returnKeyType={"next"}
+									label='Senha'
+									maxLength={6}
+									onChangeText={userPassword => this.setState({ userPassword })}
+									keyboardType="numeric"
+									secureTextEntry={this.state.hidePassword}
+									ref={ref => { this.senha = ref}}
+								/>
+								<TouchableOpacity style={layout_login.styles.btn_entrar} hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => this.login()}>
+									<Text style={layout_login.styles.texto_entrar}>{'Entrar'}</Text>
+								</TouchableOpacity>
+
 							</View>
 						</View>
 					) : null}
