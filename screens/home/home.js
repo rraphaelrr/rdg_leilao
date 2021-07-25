@@ -29,11 +29,11 @@ const ITEM_WIDTH = Math.round(width - 70);
 export default class home extends Component {
     constructor(props) {
         super(props);
-        global.digital = 10.00
+        /* global.digital = 10.00 */
         this.state = {
             valor_saldo: '__,__',
             olho: 'eye-slash',
-
+            saldo: 100000000.00
         }
     }
 
@@ -46,7 +46,7 @@ export default class home extends Component {
     mostrar_valor = () => {
         if (this.state.valor_saldo == '__,__') {
             this.setState({
-                valor_saldo: parseFloat(global.digital),
+                valor_saldo: formatReal(this.state.saldo),
                 olho: 'eye'
             })
 
@@ -86,6 +86,7 @@ export default class home extends Component {
                         </TouchableOpacity>
                     </View>
 
+
                     <View style={layout_home.styles.caixa_saldo} >
                         <Text style={layout_home.styles.texto_saldo_conta_digital}>{'Saldo RDG Coin'}</Text>
                         <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => this.mostrar_valor()}
@@ -95,20 +96,23 @@ export default class home extends Component {
                             <Icon2 name={this.state.olho} size={24} style={layout_home.styles.icone_olho_saldo} />
                         </TouchableOpacity>
                     </View>
+
                     <View >
                         {Objetos.bannerhome}
                     </View>
+
                     <View style={layout_home.styles.view_title_home}>
                         <Text style={layout_home.styles.title_home}>{'Seja Bem Vindo ao ' + Info.nome + '! \n Escolha o que Deseja Acessar'}</Text>
                     </View>
+
                     <View style={layout_home.styles.opc_home}>
                         <View >
-                            <TouchableOpacity style={layout_home.styles.btn_home} >
+                            <TouchableOpacity style={layout_home.styles.btn_home} onPress={() => Alert.alert('Leilão')}>
                                 <Text style={layout_home.styles.text_home}>{'Leilão'}</Text>
                             </TouchableOpacity>
                         </View>
                         <View >
-                            <TouchableOpacity style={layout_home.styles.btn_home} >
+                            <TouchableOpacity style={layout_home.styles.btn_home} onPress={() => Alert.alert('E-Commerce')}>
                                 <Text style={layout_home.styles.text_home}>{'E-Commerce'}</Text>
                             </TouchableOpacity>
                         </View>
@@ -117,12 +121,12 @@ export default class home extends Component {
 
                     <View style={layout_home.styles.opc_home}>
                         <View >
-                            <TouchableOpacity style={layout_home.styles.btn_home} >
+                            <TouchableOpacity style={layout_home.styles.btn_home} onPress={() => Alert.alert('Conversor')}>
                                 <Text style={layout_home.styles.text_home}>{'Conversor $'}</Text>
                             </TouchableOpacity>
                         </View>
                         <View >
-                            <TouchableOpacity style={layout_home.styles.btn_home} >
+                            <TouchableOpacity style={layout_home.styles.btn_home} onPress={() => Alert.alert('Pedidos')}>
                                 <Text style={layout_home.styles.text_home}>{'Pedidos'}</Text>
                             </TouchableOpacity>
                         </View>
