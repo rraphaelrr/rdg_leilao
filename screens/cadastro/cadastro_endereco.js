@@ -27,7 +27,7 @@ const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');
 const ITEM_WIDTH = Math.round(width - 70);
 
-export default class cadastro_dados extends Component {
+export default class cadastro_endereco extends Component {
     constructor(props) {
         super(props);
         /* global.digital = 10.00 */
@@ -47,7 +47,7 @@ export default class cadastro_dados extends Component {
         });
     };
 
-    validar_campos = () => {
+  /*   validar_campos = () => {
         if (this.state.nome == '') {
             Alert.alert('Nome é Obrigatorio')
         } else if (this.state.cpf == '') {
@@ -55,9 +55,9 @@ export default class cadastro_dados extends Component {
         } else if (this.state.email == '') {
             Alert.alert('E-Mail é Obrigatorio')
         } else {
-            this.props.navigation.navigate('cadastro_endereco')
+            this.props.navigation('cadastro_endereco')
         }
-    }
+    } */
 
     render() {
         const { navigate } = this.props.navigation;
@@ -75,7 +75,7 @@ export default class cadastro_dados extends Component {
                         <Text style={layout_cadastro.styles.view_title_dados}>{'Entre com seus dados pessoais!'}</Text>
                     </View>
 
-                    <View style={{ width: '100%', alignItems: 'center', marginTop: 20, top: -20, padding: 10 }}>
+                    {/* <View style={{ width: '100%', alignItems: 'center', marginTop: 20, top: -20, padding: 10 }}>
                         <TextInput style={layout_cadastro.styles.inputBox}
                             value={this.state.nome}
                             mode='flat'
@@ -91,7 +91,7 @@ export default class cadastro_dados extends Component {
                             label='Nome Completo*'
                             returnKeyType={"next"}
                             onChangeText={nome => this.setState({ nome })}
-                            /* onSubmitEditing={() => this.nomemae.focus()} */
+                            /* onSubmitEditing={() => this.nomemae.focus()} 
                             ref={ref => {
                                 this.nome = ref;
                             }}
@@ -175,7 +175,7 @@ export default class cadastro_dados extends Component {
                         />
 
                         <View style={layout_cadastro.styles.inputBox}>
-                            <Text style={{ color: layout_cadastro.cor_borda_rnpicker, bottom: -15 }}>Gênero</Text>
+                            <Text style={{ color: layout_cadastro.cor_borda_rnpicker, bottom: -15 }}>Sexo</Text>
                             <RNPickerSelect style={{
                                 ...pickerSelectStyles,
                                 iconContainer: {
@@ -241,7 +241,7 @@ export default class cadastro_dados extends Component {
                         <TouchableOpacity style={layout_cadastro.styles.btn_dados} onPress={() => this.validar_campos()}>
                             <Text style={layout_cadastro.styles.btn_text_dados}>{'Continuar'}</Text>
                         </TouchableOpacity>
-                    </View>
+                    </View> */}
 
                 </ScrollView>
             </ImageBackground>
@@ -272,4 +272,4 @@ const pickerSelectStyles = StyleSheet.create({
 });
 
 
-AppRegistry.registerComponent('cadastro_dados', () => cadastro_dados);
+AppRegistry.registerComponent('cadastro_endereco', () => cadastro_endereco);

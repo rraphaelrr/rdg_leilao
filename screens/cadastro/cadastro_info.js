@@ -35,6 +35,13 @@ export default class cadastro_info extends Component {
         }
     }
 
+    componentDidMount = () => {
+        BackHandler.addEventListener('hardwareBackPress', () => {
+            this.props.navigation.navigate('login');
+            return true;
+        });
+    };
+
     render() {
         const { navigate } = this.props.navigation;
         return (

@@ -33,11 +33,7 @@ export default class login extends Component {
 			hidePassword: true,
 		}
 	}
-
-	componentDidMount = () => {
-		console.log(this.state.userEmail)
-	}
-
+	
 	login = () => {
 		if(this.state.userEmail == ''){
 			Alert.alert('Preencha as Credencias para Entrar!')

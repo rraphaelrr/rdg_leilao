@@ -24,7 +24,8 @@ import {
 
 import login from './screens/login/login';
 import cadastro_info from './screens/cadastro/cadastro_info';
-import cadastro_dados from './screens/cadastro/cadastro_dados'
+import cadastro_dados from './screens/cadastro/cadastro_dados';
+import cadastro_endereco from './screens/cadastro/cadastro_endereco';
 import home from './screens/home/home';
 
 
@@ -35,6 +36,7 @@ const mainNavigation = createAnimatedSwitchNavigator(
 		login,
 		cadastro_info,
 		cadastro_dados,
+		cadastro_endereco,
 		home
 		
 	},

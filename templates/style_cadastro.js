@@ -71,8 +71,26 @@ const layout_cadastro = {
             maxHeight: 60,
             borderBottomWidth: 0.3, //tamanho da linha 
             borderColor: Colors.cor_5, //cor da linha 
-            
-          },
+
+        },
+
+        btn_dados: {
+            width: 294,
+            height: 39,
+            borderRadius: 15,
+            /* margin: 1, */
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: Colors.cor_5,
+            /* borderColor: Colors.cor_3, */
+            /* borderWidth: 1 */
+            /* opacity: 0.7, */
+        },
+
+        btn_text_dados: {
+            color: Colors.cor_3,
+            fontSize: 17
+        },
 
     }),
 
@@ -81,6 +99,10 @@ const layout_cadastro = {
     placeholder: Colors.cor_5,
     text: Colors.cor_5,
     primary: Colors.cor_5,
+
+    cor_borda_rnpicker: Colors.cor_5,
+
+    texto_geral_picker: Colors.cor_5,
 }
 
 export default layout_cadastro;
