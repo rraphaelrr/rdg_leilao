@@ -56,7 +56,7 @@ export default class login extends Component {
 		return (
 
 			<KeyboardAvoidingView style={layout_login.styles.container} behavior="position" enabled>
-				<ImageBackground style={layout_login.styles.container} source={require('../../assets/images/login1.jpg')}>
+				<ImageBackground style={layout_login.styles.container} source={require('../../assets/images/login2.jpg')}>
 					<View style={{ width: '100%', height: '50%', justifyContent: 'center', alignItems: 'center' }}>
 						{Objetos.logologin}
 					</View>
@@ -118,7 +118,7 @@ export default class login extends Component {
 						</View>
 					) : null}
 					<View style={{ width: '100%', alignItems: 'center', }}>
-						<TouchableOpacity style={layout_login.styles.ajuda_login} onPress={() => navigate('cadastro')}>
+						<TouchableOpacity style={layout_login.styles.ajuda_login} onPress={() => navigate('cadastro_info')}>
 							<Text style={layout_login.styles.texto_ajuda}>{'Cadastro'}</Text>
 						</TouchableOpacity>
 					</View>

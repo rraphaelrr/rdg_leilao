@@ -15,12 +15,14 @@ const layout_login = {
 
     texto_acessar: {
       color: Colors.cor_5,
+      fontSize: 17,
+      
     },
 
     botao_acessar: {
       width: 310,
       height: 50,
-      borderRadius: 15,
+      borderRadius: 10,
       marginTop: 200,
       alignItems: 'center',
       justifyContent: 'center',
@@ -31,18 +33,19 @@ const layout_login = {
     ajuda_login: {
       width: 310,
       height: 50,
-      borderRadius: 15,
+      borderRadius: 10,
       margin: 20,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'transparent',
-      borderColor: Colors.cor_3,
-      borderWidth: 1
+      backgroundColor: Colors.cor_5,
+      /* borderColor: Colors.cor_3, */
+      /* borderWidth: 1 */
       /* opacity: 0.7, */
     },
 
     texto_ajuda: {
-      color: Colors.cor_3
+      color: Colors.cor_3,
+      fontSize: 17
     },
 
     modal_acessar: {

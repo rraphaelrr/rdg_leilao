@@ -9,9 +9,11 @@ import { Video } from 'expo-av';
 
 
 export default {
-    imglogin: <Image source={require('../assets/images/login3.jpg')} />,
+    imglogin: <Image source={require('../assets/images/login2.jpg')} />,
     logologin: <Image source={require('../assets/images/logo2.png')} style={Layout.sizelogin} />,
     logo: <Image source={require('../assets/images/logo.png')} style={Layout.sizeheader} />,
+
+    imgcadastro: <Image source={require('../assets/images/cadastro.png')} style={Layout.sizecadastro} />,
 
     bannerhome: <View><Image source={require('../assets/images/bannerhome.png')} style={Layout.sizetestecard} /></View>,
 };

@@ -23,6 +23,7 @@ const layout_home = {
       padding: 5,
       backgroundColor: Colors.cor_3,
       flexDirection: 'row'
+
     },
 
     view_title_home: {
