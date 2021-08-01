@@ -92,6 +92,39 @@ const layout_cadastro = {
             fontSize: 17
         },
 
+        inputBox2: {
+            width: '80%',
+            backgroundColor: 'transparent',
+            fontSize: 16,
+            color: Colors.cor_2,
+            paddingHorizontal: -3,
+            maxHeight: 60,
+            borderBottomWidth: 0.3, //tamanho da linha 
+            borderColor: Colors.cor_4 //cor da linha 
+        },
+
+        view_title_endereco: {
+            marginTop: 60,
+            marginBottom: 30,
+            fontSize: 20,
+            textAlign: 'center',
+            color: Colors.cor_5,
+            fontWeight: "bold"
+        },
+
+        text_end: {
+            marginTop: 20,
+            marginBottom: 30,
+            fontSize: 14,
+            textAlign: 'center',
+            color: Colors.cor_5,
+            fontWeight: "bold"
+        },
+
+        version: {
+            marginTop: 150,
+            textAlign: 'center'
+        }
     }),
 
 

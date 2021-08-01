@@ -26,19 +26,23 @@ import login from './screens/login/login';
 import cadastro_info from './screens/cadastro/cadastro_info';
 import cadastro_dados from './screens/cadastro/cadastro_dados';
 import cadastro_endereco from './screens/cadastro/cadastro_endereco';
+import cadastro_documentos from './screens/cadastro/cadastro_documentos';
+import cadastro_finalizado from './screens/cadastro/cadastro_finalizado';
 import home from './screens/home/home';
 
 
 
 const mainNavigation = createAnimatedSwitchNavigator(
 	{
-		
+
 		login,
 		cadastro_info,
 		cadastro_dados,
 		cadastro_endereco,
+		cadastro_documentos,
+		cadastro_finalizado,
 		home
-		
+
 	},
 	{
 		transition: (
@@ -58,7 +62,7 @@ const App = createAppContainer(mainNavigation);
 export default class Appp extends React.Component {
 	constructor(props) {
 		super(props);
-		
+
 	}
 
 	loadFonts = async () => {
@@ -67,7 +71,7 @@ export default class Appp extends React.Component {
 		}).then(() => this.render())
 	}
 
-	
+
 
 	componentDidMount() {
 		this.loadFonts();
@@ -76,13 +80,13 @@ export default class Appp extends React.Component {
 
 
 	render() {
-		
-			return (
-				<SafeAreaView style={{ flex: 1, backgroundColor: Objetos.cor_statusbar }} edges={['top',]}>
-					<StatusBar hidden={false} backgroundColor={Objetos.cor_statusbar} />
-					<App />
-				</SafeAreaView>
-			)
-		
+
+		return (
+			<SafeAreaView style={{ flex: 1, backgroundColor: Objetos.cor_statusbar }} edges={['top',]}>
+				<StatusBar hidden={false} backgroundColor={Objetos.cor_statusbar} />
+				<App />
+			</SafeAreaView>
+		)
+
 	}
 }

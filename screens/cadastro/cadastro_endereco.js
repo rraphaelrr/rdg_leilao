@@ -32,12 +32,13 @@ export default class cadastro_endereco extends Component {
         super(props);
         /* global.digital = 10.00 */
         this.state = {
-            nome: '',
-            cpf: '',
-            email: '',
-            nascimento: '',
-            sexo: 0,
-            celular: '',
+            cep: '',
+            endereco: '',
+            numero: '',
+            complemento: '',
+            bairro: '',
+            cidade: '',
+            estado: '',
         }
     }
     componentDidMount = () => {
@@ -47,37 +48,35 @@ export default class cadastro_endereco extends Component {
         });
     };
 
-  /*   validar_campos = () => {
-        if (this.state.nome == '') {
-            Alert.alert('Nome é Obrigatorio')
-        } else if (this.state.cpf == '') {
-            Alert.alert('CPF é Obrigatorio')
-        } else if (this.state.email == '') {
-            Alert.alert('E-Mail é Obrigatorio')
+    validar_campos = () => {
+        if (this.state.cep == '') {
+            Alert.alert('CEP é Obrigatorio')
         } else {
-            this.props.navigation('cadastro_endereco')
+            this.props.navigation.navigate('cadastro_documentos');
         }
-    } */
+    }
 
     render() {
         const { navigate } = this.props.navigation;
         return (
             <ImageBackground style={layout_cadastro.styles.container} source={Objetos.imagem_fundo}>
+
+                <View style={layout_cadastro.styles.header}>
+                    <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => {
+                        navigate('login')
+                    }}>
+                        {Objetos.logo}
+                    </TouchableOpacity>
+                </View>
                 <ScrollView showsVerticalScrollIndicator={false} >
-                    <View style={layout_cadastro.styles.header}>
-                        <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => {
-                            navigate('login')
-                        }}>
-                            {Objetos.logo}
-                        </TouchableOpacity>
-                    </View>
                     <View >
-                        <Text style={layout_cadastro.styles.view_title_dados}>{'Entre com seus dados pessoais!'}</Text>
+                        <Text style={layout_cadastro.styles.view_title_endereco}>{'Preencha com os dados de Endereço'}</Text>
                     </View>
 
-                    {/* <View style={{ width: '100%', alignItems: 'center', marginTop: 20, top: -20, padding: 10 }}>
+
+                    <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                         <TextInput style={layout_cadastro.styles.inputBox}
-                            value={this.state.nome}
+                            value={this.state.cep}
                             mode='flat'
                             theme={{
                                 colors: {
@@ -86,68 +85,28 @@ export default class cadastro_endereco extends Component {
                                     primary: layout_cadastro.primary,
                                 }
                             }}
-                            underlineColorAndroid={'transparent'}
-                            underlineColor={'transparent'}
-                            label='Nome Completo*'
-                            returnKeyType={"next"}
-                            onChangeText={nome => this.setState({ nome })}
-                            /* onSubmitEditing={() => this.nomemae.focus()} 
-                            ref={ref => {
-                                this.nome = ref;
-                            }}
-                        />
-                        <TextInput style={layout_cadastro.styles.inputBox}
-                            value={this.state.cpf}
-                            mode='flat'
-                            theme={{
-                                colors: {
-                                    placeholder: layout_cadastro.placeholder,
-                                    text: layout_cadastro.text,
-                                    primary: layout_cadastro.primary,
-                                }
-                            }}
-                            underlineColorAndroid={'transparent'}
-                            underlineColor={'transparent'}
+                            underlineColor={layout_cadastro.cor_borda_underline}
                             render={props =>
                                 <TextInputMask
                                     {...props}
                                     type={'custom'}
                                     options={{
-                                        mask: "999.999.999-99"
+                                        mask: "99999-999"
                                     }}
-                                    ref={ref => this.cpf = ref}
                                 />
                             }
-                            maxLength={14}
-                            // returnKeyType={"next"}
-                            keyboardType="numeric"
-                            label='CPF*'
-                            onChangeText={cpf => this.setState({ cpf })}
-
-                        />
-
-                        <TextInput style={layout_cadastro.styles.inputBox}
-                            disabled={this.state.disabled}
-                            value={this.state.email}
-                            mode='flat'
-                            theme={{
-                                colors: {
-                                    placeholder: layout_cadastro.placeholder,
-                                    text: layout_cadastro.text,
-                                    primary: layout_cadastro.primary,
-                                },
-
-                            }}
                             underlineColorAndroid={'transparent'}
                             underlineColor={'transparent'}
-                            label='E-Mail*'
-                            keyboardType="email-address"
-                            onChangeText={email => this.setState({ email })}
-
+                            returnKeyType='go'
+                            keyboardType="number-pad"
+                            label='CEP*'
+                            onChangeText={cep => this.setState({ cep })}
+                        /* onSubmitEditing={() => this.consulta()} */
                         />
 
+
                         <TextInput style={layout_cadastro.styles.inputBox}
-                            value={this.state.nascimento}
+                            value={this.state.endereco}
                             mode='flat'
                             theme={{
                                 colors: {
@@ -158,52 +117,15 @@ export default class cadastro_endereco extends Component {
                             }}
                             underlineColorAndroid={'transparent'}
                             underlineColor={'transparent'}
-                            render={props =>
-                                <TextInputMask
-                                    {...props}
-                                    type={'custom'}
-                                    options={{
-                                        mask: "99/99/9999"
-                                    }}
-                                    ref={ref => this.nascimento = ref}
-                                />
-                            }
                             returnKeyType={"next"}
-                            keyboardType="numeric"
-                            label='Data de nascimento'
-                            onChangeText={nascimento => this.setState({ nascimento })}
+                            label='Endereço'
+                            onChangeText={endereco => this.setState({ endereco })}
+                            ref={(input) => { this.endereco = input; }}
+
                         />
 
-                        <View style={layout_cadastro.styles.inputBox}>
-                            <Text style={{ color: layout_cadastro.cor_borda_rnpicker, bottom: -15 }}>Sexo</Text>
-                            <RNPickerSelect style={{
-                                ...pickerSelectStyles,
-                                iconContainer: {
-                                    // top: 1,
-                                    left: 0,
-                                },
-                                placeholder: {
-                                    fontSize: 16,
-                                },
-                            }}
-                                placeholder={{
-                                    label: 'Gênero',
-                                    value: "",
-                                }}
-                                onChangeText={sexo => this.setState({ sexo })}
-                                onValueChange={(sexo) => this.setState({ sexo })}
-                                value={this.state.sexo}
-                                items={[
-                                    { label: 'Feminino', value: 'Feminino' },
-                                    { label: 'Masculino', value: 'Masculino' },
-                                    { label: 'Outros', value: 'Outros' },
-                                    { label: 'Prefiro Não Dizer', value: 'Prefiro Não Dizer' },
-                                ]}
-                            />
-                        </View>
-
                         <TextInput style={layout_cadastro.styles.inputBox}
-                            value={this.state.celular}
+                            value={this.state.numero}
                             mode='flat'
                             theme={{
                                 colors: {
@@ -214,34 +136,95 @@ export default class cadastro_endereco extends Component {
                             }}
                             underlineColorAndroid={'transparent'}
                             underlineColor={'transparent'}
-                            render={props =>
-                                <TextInputMask
-                                    {...props}
-                                    type={'custom'}
-                                    options={{
-                                        mask: "(99)99999-9999"
-                                    }}
-                                    ref={ref => this.celular = ref}
-                                />
-                            }
-                            placeholder={"(00)00000-0000"}
                             returnKeyType={"next"}
-                            keyboardType="numeric"
-                            // maxLength={14}
-                            label='Celular'
-                            onChangeText={celular => this.setState({ celular })}
+                            label='Número'
+                            onChangeText={numero => this.setState({ numero })}
+                            onSubmitEditing={() => this.complemento.focus()}
+                            ref={(input) => { this.numero = input; }}
 
                         />
 
+                        <TextInput style={layout_cadastro.styles.inputBox}
+                            value={this.state.complemento}
+                            mode='flat'
+                            theme={{
+                                colors: {
+                                    placeholder: layout_cadastro.placeholder,
+                                    text: layout_cadastro.text,
+                                    primary: layout_cadastro.primary,
+                                }
+                            }}
+                            underlineColorAndroid={'transparent'}
+                            underlineColor={'transparent'}
+                            returnKeyType={"next"}
+                            label='Complemento'
+                            onChangeText={complemento => this.setState({ complemento })}
+                            ref={(input) => { this.complemento = input; }}
 
+                        />
 
+                        <TextInput style={layout_cadastro.styles.inputBox}
+                            value={this.state.bairro}
+                            mode='flat'
+                            theme={{
+                                colors: {
+                                    placeholder: layout_cadastro.placeholder,
+                                    text: layout_cadastro.text,
+                                    primary: layout_cadastro.primary,
+                                }
+                            }}
+                            underlineColorAndroid={'transparent'}
+                            underlineColor={'transparent'}
+                            returnKeyType={"next"}
+                            label='Bairro'
+                            onChangeText={bairro => this.setState({ bairro })}
+                            ref={(input) => { this.bairro = input; }}
+
+                        />
+                        <TextInput style={layout_cadastro.styles.inputBox}
+                            value={this.state.cidade}
+                            mode='flat'
+                            theme={{
+                                colors: {
+                                    placeholder: layout_cadastro.placeholder,
+                                    text: layout_cadastro.text,
+                                    primary: layout_cadastro.primary,
+                                }
+                            }}
+                            underlineColorAndroid={'transparent'}
+                            underlineColor={'transparent'}
+                            returnKeyType={"next"}
+                            label='Cidade'
+                            onChangeText={cidade => this.setState({ cidade })}
+                            ref={(input) => { this.cidade = input; }}
+
+                        />
+
+                        <TextInput style={layout_cadastro.styles.inputBox}
+                            value={this.state.estado}
+                            mode='flat'
+                            theme={{
+                                colors: {
+                                    placeholder: layout_cadastro.placeholder,
+                                    text: layout_cadastro.text,
+                                    primary: layout_cadastro.primary,
+                                }
+                            }}
+                            underlineColorAndroid={'transparent'}
+                            underlineColor={'transparent'}
+                            returnKeyType={"next"}
+                            label='Estado'
+                            onChangeText={estado => this.setState({ estado })}
+                            ref={(input) => { this.estado = input; }}
+
+                        />
                     </View>
 
-                    <View style={{ width: '100%', alignItems: 'center', }}>
+                    <View style={{ width: '100%', alignItems: 'center', marginTop: 15 }}>
                         <TouchableOpacity style={layout_cadastro.styles.btn_dados} onPress={() => this.validar_campos()}>
                             <Text style={layout_cadastro.styles.btn_text_dados}>{'Continuar'}</Text>
                         </TouchableOpacity>
-                    </View> */}
+                    </View>
 
                 </ScrollView>
             </ImageBackground>

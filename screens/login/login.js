@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Text from '../../componentes/text';
-import { ScrollView, Linking, Animated, StatusBar, AppRegistry, View, TouchableOpacity, ImageBackground, Image, Alert, KeyboardAvoidingView, Dimensions } from 'react-native';
+import {BackHandler,  ScrollView, Linking, Animated, StatusBar, AppRegistry, View, TouchableOpacity, ImageBackground, Image, Alert, KeyboardAvoidingView, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
 import { TextInput } from 'react-native-paper';
@@ -18,6 +18,7 @@ import { CheckBox } from 'react-native-elements';
 import { Audio, Video } from 'expo-av';
 import Colors from '../../constants/Colors';
 
+
 import { SliderBox } from "react-native-image-slider-box";
 
 const width = Dimensions.get('window').width;
@@ -33,6 +34,13 @@ export default class login extends Component {
 			hidePassword: true,
 		}
 	}
+
+	componentDidMount = () => {
+        BackHandler.addEventListener('hardwareBackPress', () => {
+            this.setState({modal_acessar: false, btn_acessar: true,})
+            return true;
+        });
+    };
 	
 	login = () => {
 		if(this.state.userEmail == ''){
@@ -118,6 +126,7 @@ export default class login extends Component {
 							<Text style={layout_login.styles.texto_ajuda}>{'Cadastro'}</Text>
 						</TouchableOpacity>
 					</View>
+				
 				</ImageBackground>
 			</KeyboardAvoidingView>
 
