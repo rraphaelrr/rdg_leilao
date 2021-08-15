@@ -22,6 +22,7 @@ import { sair } from '../../constants/funcoes';
 import Layout from '../../constants/Layout'
 import Icon2 from 'react-native-vector-icons/FontAwesome';
 
+
 const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');
 const ITEM_WIDTH = Math.round(width - 70);
@@ -69,22 +70,17 @@ export default class home extends Component {
         const { navigate } = this.props.navigation;
         return (
             <ImageBackground style={layout_home.styles.container} source={Objetos.imagem_fundo}>
-                <ScrollView showsVerticalScrollIndicator={false} >
-                    <View style={layout_home.styles.header}>
-                        <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => {
-                            Alert.alert('teste')
-                        }}>
-                            {Objetos.logo}
+                <View style={layout_home.styles.header}>
+                    <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => {
+                        Alert.alert('teste')
+                    }}>
+                        {Objetos.logo}
 
-                        </TouchableOpacity>
-                        <TouchableOpacity hitSlop={{ top: 20, bottom: 20, left: 20, right: 20 }} onPress={() => {
-                            this._sair();
-                        }}>
-                            <View style={{ paddingTop: 30 }}>
-                                {Icon.menu}
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+                    </TouchableOpacity>
+
+                </View>
+                <ScrollView showsVerticalScrollIndicator={false} >
+
 
 
                     <View style={layout_home.styles.caixa_saldo} >
@@ -106,32 +102,29 @@ export default class home extends Component {
                     </View>
 
                     <View style={layout_home.styles.opc_home}>
-                        <View >
-                            <TouchableOpacity style={layout_home.styles.btn_home} onPress={() => Alert.alert('Leilão')}>
-                                <Text style={layout_home.styles.text_home}>{'Leilão'}</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View >
-                            <TouchableOpacity style={layout_home.styles.btn_home} onPress={() => Alert.alert('E-Commerce')}>
-                                <Text style={layout_home.styles.text_home}>{'E-Commerce'}</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-
-                    <View style={layout_home.styles.opc_home}>
-                        <View >
+                        <View>
                             <TouchableOpacity style={layout_home.styles.btn_home} onPress={() => Alert.alert('Conversor')}>
-                                <Text style={layout_home.styles.text_home}>{'Conversor $'}</Text>
+                                <Icon2 name={'gavel'} style={layout_home.styles.iconsRapidos} />
+                                <Text style={layout_home.styles.text_home}>{'RDGLeilão'}</Text>
                             </TouchableOpacity>
                         </View>
-                        <View >
-                            <TouchableOpacity style={layout_home.styles.btn_home} onPress={() => Alert.alert('Pedidos')}>
-                                <Text style={layout_home.styles.text_home}>{'Pedidos'}</Text>
+                        <View>
+                            <TouchableOpacity style={layout_home.styles.btn_home} onPress={() => Alert.alert('Conversor')}>
+                                <Icon2 name={'shopping-bag'} style={layout_home.styles.iconsRapidos} />
+                                <Text style={layout_home.styles.text_home}>{'RDG-Commerce'}</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View>
+                            <TouchableOpacity style={layout_home.styles.btn_home} onPress={() => Alert.alert('Conversor')}>
+                                <Icon2 name={'dollar'} style={layout_home.styles.iconsRapidos} />
+                                <Text style={layout_home.styles.text_home}>{'Conversor RDG'}</Text>
                             </TouchableOpacity>
                         </View>
 
                     </View>
+
+
+
                 </ScrollView>
             </ImageBackground>
 
